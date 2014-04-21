@@ -1,0 +1,102 @@
+// /* ------------------------------------------ *\
+// 					if...else
+// \* ------------------------------------------ */
+:::ERB
+<% if 某條件 %>  
+  當條件成立時執行的部份
+<% else %>
+  當條件不成立時執行的部份
+<% end %>
+
+:::slim
+- if (1+1==2)
+  會顯示這一行
+- else
+  永遠不會顯示
+
+// /* ------------------------------------------ *\
+// 					做某件事情 n 次
+// \* ------------------------------------------ */
+:::ERB
+<% n.times do %>  
+  做某件事
+<% end %>
+
+:::slim
+- 3.times do
+  早安您好
+
+// /* ------------------------------------------ *\
+// 				隨機挑一個 0 到 n-1 之間的數字
+// \* ------------------------------------------ */
+:::ERB
+<%= rand(n) %>
+
+:::slim
+= rand(3)
+
+
+
+// /* ------------------------------------------ *\
+// 				Templates
+// \* ------------------------------------------ */
+:::html
+<h1>sample list</h1>
+<ul>
+    <li>list 1</li>
+    <li>list 2</li>
+    <li>list 3</li>
+    <li>list 4</li>
+    <li>list 5</li>
+</ul>
+
+:::ERB
+<h1>sample list</h1>
+<ul>
+    <% (1..5).each do |n| %>
+        <li>list <%= n %></li>
+    <% end %>
+</ul>
+
+:::slim
+h1 sample list
+ul
+  - (1..5).each do |n|
+  	li
+  		| list
+  		= n
+or
+h1 sample list
+ul
+  - (1..5).each do |n|
+  	li list #{n}
+
+
+// /* ------------------------------------------ *\
+// 				Layouts
+// \* ------------------------------------------ */
+:::ERB
+<%= yield %>
+
+:::slim
+= yield
+
+// /* ------------------------------------------ *\
+//        中文假資料helpr
+// \* ------------------------------------------ */
+
+= zh_lorem_word, = zh_lorem_words
+= zh_lorem_sentence, = zh_lorem_sentences
+= zh_lorem_paragraph, = zh_lorem_paragraphs
+= zh_lorem_name
+= zh_lorem_name_pinyin
+= zh_lorem_first_name
+= zh_lorem_first_name_pinyin
+= zh_lorem_last_name
+= zh_lorem_last_name_pinyin
+= zh_lorem_email
+
+// /* ------------------------------------------ *\
+//        假資料helpr
+// \* ------------------------------------------ */
+= lorem_date.to_date
