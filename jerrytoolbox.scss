@@ -5,7 +5,7 @@
 // \____/_____/_/ |_/_/ |_| /_/    /_/  \____/\____/_____/_____/\____/_/|_|  
                                                                           
 
-// Set a rem font size with pixel fallback
+// Set a rem font size with pixel fallback \\
 
 @function calculateRem($size) {
   $remSize: $size / 16px;
@@ -22,21 +22,21 @@ p {
 }
 */
 
-// Breakpoints
+// Breakpoints \\
 
-@mixin bp-large {
+@mixin bpmw-large {
   @media only screen and (max-width: 60em) {
     @content;
   }
 }
 
-@mixin bp-medium {
+@mixin bpmw-medium {
   @media only screen and (max-width: 40em) {
     @content;
   }
 }
 
-@mixin bp-small {
+@mixin bpmw-small {
   @media only screen and (max-width: 30em) {
     @content;
   }
